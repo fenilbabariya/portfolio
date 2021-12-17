@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Registration (Tutorial 1)</title>
+    <title>Registration Validation (Tutorial 3)</title>
     <style>
         body
             {
@@ -15,7 +15,7 @@
                 background: -webkit-linear-gradient(to right, #182848, #4b6cb7);
                 background: linear-gradient(to right, #182848, #4b6cb7);
             }
-        </style>
+    </style>
 </head>
 
 <body>
@@ -30,7 +30,7 @@
                                 Username
                             </div>
                             <div class="col-md-8">
-                                <input type="email" class="form-control bg-dark text-light" placeholder="name@example.com">
+                                <input type="email" id="username" class="form-control bg-dark text-light" placeholder="name@example.com">
                             </div>
                         </div>
                         
@@ -39,7 +39,7 @@
                                 Password
                             </div>
                             <div class="col-md-8">
-                                <input type="password" class="form-control bg-dark text-light" placeholder="Password">
+                                <input type="password" id="password" class="form-control bg-dark text-light" placeholder="Password">
                             </div>
                         </div>
                         <div class="row p-1">
@@ -47,7 +47,7 @@
                                 Re-Password
                             </div>
                             <div class="col-md-8">
-                                <input type="password" class="form-control bg-dark text-light" placeholder="Confirm Password">
+                                <input type="password" id="repassword" class="form-control bg-dark text-light" placeholder="Confirm Password">
                             </div>
                         </div>
 
@@ -56,7 +56,7 @@
                                 Age
                             </div>
                             <div class="col-md-8">
-                                <input type="text" class="form-control bg-dark text-light" placeholder="Age">
+                                <input type="text" id="age" class="form-control bg-dark text-light" placeholder="Age">
                             </div>
                         </div>
                         
@@ -65,7 +65,7 @@
                                 Date of Birth
                             </div>
                             <div class="col-md-8">
-                                <input type="date" class="form-control bg-dark text-light">
+                                <input type="date" id="dob" class="form-control bg-dark text-light">
                             </div>
                         </div>
 
@@ -74,7 +74,7 @@
                                 Country
                             </div>
                             <div class="col-md-8">
-                                <input type="text" class="form-control bg-dark text-light" placeholder="Country">
+                                <input type="text" id="country" class="form-control bg-dark text-light" placeholder="Country">
                             </div>
                         </div>
                         
@@ -83,7 +83,7 @@
                                 State
                             </div>
                             <div class="col-md-8">
-                                <input type="text" class="form-control bg-dark text-light" placeholder="State">
+                                <input type="text" id="state" class="form-control bg-dark text-light" placeholder="State">
                             </div>
                         </div>
                         
@@ -92,7 +92,7 @@
                                 City
                             </div>
                             <div class="col-md-8">
-                                <input type="text" class="form-control bg-dark text-light" placeholder="City">
+                                <input type="text" id="city" class="form-control bg-dark text-light" placeholder="City">
                             </div>
                         </div>
                         
@@ -112,19 +112,13 @@
                                 Note
                             </div>
                             <div class="col-md-8">
-                                <textarea class="form-control bg-dark text-light" placeholder="Leave a note here"></textarea>
+                                <textarea class="form-control bg-dark text-light" id="note" placeholder="Leave a note here"></textarea>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="d-grid gap-2 col-6 mx-auto mt-2">
-                                <button type="button" class="btn btn-primary">REGISTER</button>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col text-center mt-1">
-                                <b>Already User? </b><a href="index.html">Login Here</a>
+                                <button type="button" id="register" class="btn btn-primary">REGISTER</button>
                             </div>
                         </div>
                     </div>
@@ -169,6 +163,40 @@
     </script>
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('#register').click(function(){
+                $username = $('#username').val().toString();
+                $psw = $('#password').val().toString();
+                $repsw = $('#repassword').val().toString();
+                $age = $('#age').val().toString();
+                $country = $('#country').val().toString();
+                $state = $('#state').val().toString();
+                $city = $('#city').val().toString();
+                $note = $('#note').val().toString();
+                    // checkPassword();
+                    
+                    if($psw == $repsw)
+                    {
+                        alert("Registration Successful...");
+                    }else
+                    {
+                        alert("Password and Re-Password must be same");
+                        return false;
+                    }
+                    
+                    // function checkPassword()
+                    // {
+                    //     if()
+                    //     {
+                            
+                    //     }
+                    // }
+            });
+        });
+    </script>
 
 </body>
 </html>
