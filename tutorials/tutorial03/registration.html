@@ -15,6 +15,9 @@
                 background: -webkit-linear-gradient(to right, #182848, #4b6cb7);
                 background: linear-gradient(to right, #182848, #4b6cb7);
             }
+    img[src*="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"] {
+display: none;}
+
     </style>
 </head>
 
@@ -145,7 +148,6 @@
             } 
             else 
             {
-              
                 // Image preview
                 if (fileInput.files && fileInput.files[0]) {
                     var reader = new FileReader();
@@ -176,24 +178,24 @@
                 $state = $('#state').val().toString();
                 $city = $('#city').val().toString();
                 $note = $('#note').val().toString();
-                    // checkPassword();
-                    
+
+                if($username == "" | $psw == "" | $repsw == "" | $age == "" | $country == "" | $state == "" | $city == "" | $note == "")
+                {
+                    alert("Please enter all the values...");
+                    return false;
+                }
+                else
+                {
                     if($psw == $repsw)
                     {
                         alert("Registration Successful...");
-                    }else
+                    }
+                    else
                     {
                         alert("Password and Re-Password must be same");
                         return false;
                     }
-                    
-                    // function checkPassword()
-                    // {
-                    //     if()
-                    //     {
-                            
-                    //     }
-                    // }
+                }
             });
         });
     </script>
