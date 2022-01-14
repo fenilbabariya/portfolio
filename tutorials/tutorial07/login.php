@@ -2,8 +2,18 @@
 
     session_start();
 
-    $valusername = isset($_COOKIE['username']);
-    $valpassword = isset($_COOKIE['password']);
+    
+    if(isset($_COOKIE['username']))
+    {
+        $valusername = $_COOKIE['username'];
+        $valpassword = $_COOKIE['password'];
+        $checked = "checked";
+    }else
+    {
+        $valusername = "";
+        $valpassword = "";
+        $checked = "";
+    }
 
     if(isset($_POST['login']))   // it checks whether the user clicked login button or not 
     {
@@ -77,7 +87,7 @@ display: none;}
                                     Username
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="email" name="username" class="form-control bg-dark text-light" placeholder="name@example.com">
+                                    <input type="email" name="username" value="<?=$valusername?>" class="form-control bg-dark text-light" placeholder="name@example.com">
                                 </div>
                             </div>
                             
@@ -86,7 +96,7 @@ display: none;}
                                     Password
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="password" name="password" class="form-control bg-dark text-light" placeholder="Password">
+                                    <input type="password" name="password" value="<?=$valpassword?>" class="form-control bg-dark text-light" placeholder="Password">
                                 </div>
                             </div>
                             
@@ -95,7 +105,7 @@ display: none;}
                                 </div>
                                 <div class="col-md-8">
                                     <div class="form-check">
-                                        <input class="form-check-input" value="1"  type="checkbox" name="remember" id="remember" >
+                                        <input class="form-check-input" value="1" <?=$checked?>  type="checkbox" name="remember" id="remember" >
                                         Remember Me        
                                     </div>
                                 </div>
