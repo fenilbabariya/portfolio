@@ -1,5 +1,6 @@
 <?php
     session_start();
+    
 ?>
 
 <html>
@@ -16,6 +17,8 @@
        else
        {
             echo 'Welcome To Home Page...'.$_SESSION['username'];
+
+            echo $_COOKIE['username'];
           //echo '<script type="text/javascript"> alert("Login Successfully..."); </script>';
             echo "</br><a href='logout.php'>Click Here To Logout</a> "; 
        }

@@ -1,5 +1,10 @@
 <?php
+
     session_start();
+
+    $valusername = isset($_COOKIE['username']);
+    $valpassword = isset($_COOKIE['password']);
+
     if(isset($_POST['login']))   // it checks whether the user clicked login button or not 
     {
         $user = $_POST['username'];
@@ -8,10 +13,22 @@
         {
             $valuser=$_SESSION['username'];
             $valpass=$_SESSION['password'];
-                
+            
+            
             if(($user == $valuser)  && ($pass == $valpass))
             {
                 echo '<script type="text/javascript"> window.open("index.php","_blank");</script>';    //  On Successful Login redirects to index.php
+                
+                //Set Cookie Code
+                if(isset($_POST['remember']))
+                {
+                    setcookie('username',$user,time()+3600*24*7);
+                    setcookie('password',$pass,time()+3600*24*7);
+                }else
+                {
+                    setcookie('username',$user,time()-1);
+                    setcookie('password',$pass,time()-1);
+                }
             }
             else
             {
@@ -24,15 +41,6 @@
             alert("Please Registration First");
             window.open("registration.php","_blank");
             </script>';             
-        }
-
-        if (!empty($_POST['remember'])) 
-        {  
-            $remember=$_POST['remember'];
-
-            setcookie('username',$user,time()+3600*24*7);
-            setcookie('password',$pass,time()+3600*24*7);  
-            setcookie('remember',$remember,time()+3600*24*7);
         }
     }
 ?>
@@ -87,7 +95,7 @@ display: none;}
                                 </div>
                                 <div class="col-md-8">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" name="remember" id="remember" >
+                                        <input class="form-check-input" value="1"  type="checkbox" name="remember" id="remember" >
                                         Remember Me        
                                     </div>
                                 </div>
