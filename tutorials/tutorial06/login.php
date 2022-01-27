@@ -11,7 +11,8 @@
                 
             if(($user == $valuser)  && ($pass == $valpass))
             {
-                echo '<script type="text/javascript"> window.open("index.php","_blank");</script>';    //  On Successful Login redirects to index.php
+				header("Location:index.php");
+                //echo '<script type="text/javascript"> window.open("index.php","_blank");</script>';    //  On Successful Login redirects to index.php
             }
             else
             {

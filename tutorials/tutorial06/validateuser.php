@@ -1,8 +1,8 @@
 <?php
 
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
+//echo "<pre>";
+//print_r($_POST);
+//echo "</pre>";
 
     session_start();
     $_SESSION['username']=$_POST['username'];
@@ -15,5 +15,5 @@ echo "</pre>";
     $_SESSION['photo']=$_POST['photo'];
     $_SESSION['note']=$_POST['note'];
 
-    echo '<script type="text/javascript"> window.open("login.php","_self");</script>';
+	header("location:login.php");
 ?>

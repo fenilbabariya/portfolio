@@ -1,5 +1,7 @@
 <?php
+session_start();
 require 'db.php';
+$msg = isset($_SESSION['status'])?$_SESSION['status']:"";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,32 +14,32 @@ require 'db.php';
 </head>
 <body>
 	<div class="container mt-4"> 
+        <a href="students-insert.php">Add New Student</a>
+            <p class="text-success fw-bold"><?=$msg?></p>
     	<table class="table table-dark table-striped">
     		<thead>
         	<tr>
-                    <th>ID</th>
-                    <th>Full Name</th>
+                    <th>Enrollment</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
                     <th>City</th>
-                    <th>Stream</th>
-                    <th>Sem</th>
-                    <th>Mobile</th>
+                    <th>Action</th>
             </tr>
             </thead>
 			<tbody class="table">
             <?php
-            $sql = "select No,concat(firstname,' ',lastname) as fullname,city,stream,sem,mobile from student";
+            $sql = "select * from user";
     		$result = $db->query($sql);
             while ($row = $result->fetch_assoc()) 
             {
                 //print_r($row);
             ?>
             <tr>
-                    <td><?=$row['No']?></td>
-                    <td><?=$row['fullname']?></td>
+                    <td><?=$row['enrollment']?></td>
+                    <td><?=$row['firstname']?></td>
+                    <td><?=$row['lastname']?></td>
                     <td><?=$row['city']?></td>
-                    <td><?=$row['stream']?></td>
-                    <td><?=$row['sem']?></td>
-                    <td><?=$row['mobile']?></td>    
+                    <td><a href="student-delete.php?enrollment=<?=$row['enrollment'];?>">Delete</a></td>
             </tr>
             <?php
             	}

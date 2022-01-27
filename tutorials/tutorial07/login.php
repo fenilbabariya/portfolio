@@ -32,7 +32,7 @@
                 //Set Cookie Code
                 if(isset($_POST['remember']))
                 {
-                    setcookie('username',$user,time()+3600*24*7);
+                    setcookie('username',$user,time()+3600824*7);
                     setcookie('password',$pass,time()+3600*24*7);
                 }else
                 {
@@ -96,7 +96,8 @@ display: none;}
                                     Password
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="password" name="password" value="<?=$valpassword?>" class="form-control bg-dark text-light" placeholder="Password">
+                                    <input type="password" name="password" 
+									value="<?=$valpassword?>" class="form-control bg-dark text-light" placeholder="Password">
                                 </div>
                             </div>
                             
