@@ -42,7 +42,10 @@ $msg = isset($_SESSION['status'])?$_SESSION['status']:"";
                     <td><?=$row['firstname']?></td>
                     <td><?=$row['lastname']?></td>
                     <td><?=$row['city']?></td>
-                    <td><a class="btn text-light bg-danger" onclick="return confirm('Do you want to delete the record?');" href="student-delete.php?id=<?=$row['id'];?>">Delete</a></td>
+                    <td>
+                        <a class="btn text-light bg-primary" href="students-insert.php?id=<?=$row['id'];?>">Update</a>
+                        <a class="btn text-light bg-danger" onclick="return confirm('Do you want to delete the record?');" href="student-delete.php?id=<?=$row['id'];?>">Delete</a>
+                    </td>
             </tr>
             <?php
             	}
