@@ -22,7 +22,7 @@ $msg = isset($_SESSION['status'])?$_SESSION['status']:"";
                     Enrollment No
                 </div>
                 <div class="col-md-8">
-                    <input type="text" name="enrollment" value="" class="form-control">
+                    <input type="text" name="enrollment" value="21SOECA21002" class="form-control">
                 </div>
             </div>
             
@@ -31,7 +31,7 @@ $msg = isset($_SESSION['status'])?$_SESSION['status']:"";
                     First Name
                 </div>
                 <div class="col-md-8">
-                    <input type="text" name="firstname" value="" class="form-control">
+                    <input type="text" name="firstname" value="Fenil" class="form-control">
                 </div>
             </div>
 
@@ -40,7 +40,7 @@ $msg = isset($_SESSION['status'])?$_SESSION['status']:"";
                     Last Name
                 </div>
                 <div class="col-md-8">
-                    <input type="text" name="lastname" value="" class="form-control">
+                    <input type="text" name="lastname" value="Babariya" class="form-control">
                 </div>
             </div>
 
@@ -49,7 +49,7 @@ $msg = isset($_SESSION['status'])?$_SESSION['status']:"";
                     City
                 </div>
                 <div class="col-md-8">
-                    <input type="text" name="city" value="" class="form-control">
+                    <input type="text" name="city" value="Rajkot" class="form-control">
                 </div>
             </div>
 
