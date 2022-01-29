@@ -7,7 +7,7 @@ if($id == "")
 {
     header("location:index.php");
 }
-$sql = "delete from student where id=$id";
+$sql = "delete from books where id=$id";
 $db->query($sql);
 $_SESSION['status'] = "Record Deleted";
 header("location:index.php");

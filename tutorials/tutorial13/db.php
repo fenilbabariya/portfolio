@@ -1,6 +1,6 @@
 <?php
 
-$db=new mysqli('localhost','root','','tutorial11');
+$db=new mysqli('localhost','root','','tutorial13_library');
 
 	if($db -> connect_errno)
 	{

@@ -2,6 +2,7 @@
 session_start();
 require 'db.php';
 $msg = isset($_SESSION['status'])?$_SESSION['status']:"";
+session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -2,6 +2,26 @@
 session_start();
 require 'db.php';
 $msg = isset($_SESSION['status'])?$_SESSION['status']:"";
+$id = isset($_GET['id'])?$_GET['id']:"";
+
+if($id=="")
+{
+    $title = "";
+    $author = "";
+    $price = "";
+    $stock = "";
+}
+else
+{
+    $sql = "select * from books where id=$id";
+    $result = $db->query($sql);
+    $row = $result->fetch_assoc();
+    $title = $row['title'];
+    $author = $row['author'];
+    $price = $row['price'];
+    $stock = $row['stock'];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,43 +33,54 @@ $msg = isset($_SESSION['status'])?$_SESSION['status']:"";
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-	<div class="container-fluid mt-5"> 
+	<div class="container-fluid mt-5">
         <div class="row justify-content-center">
         <div class="col-md-8 alert alert-primary">
-        <form action="student-add.php" method="post">
+        <form action="books-add.php" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="<?=$id?>">
+            
             <div class="row p-2">
                 <div class="col-md-4">
-                    Enrollment No
+                    Book Title
                 </div>
                 <div class="col-md-8">
-                    <input type="text" name="enrollment" value="21SOECA21002" class="form-control">
+                    <input type="text" name="title" value="<?=$title?>" class="form-control">
                 </div>
             </div>
             
             <div class="row p-2">
                 <div class="col-md-4">
-                    First Name
+                    Book Author
                 </div>
                 <div class="col-md-8">
-                    <input type="text" name="firstname" value="Fenil" class="form-control">
+                    <input type="text" name="author" value="<?=$author?>" class="form-control">
                 </div>
             </div>
 
             <div class="row p-2">
                 <div class="col-md-4">
-                    Last Name
+                    Book Price
                 </div>
                 <div class="col-md-8">
-                    <input type="text" name="lastname" value="Babariya" class="form-control">
+                    <input type="text" name="price" value="<?=$price?>" class="form-control">
                 </div>
             </div>
 
             <div class="row p-2">
                 <div class="col-md-4">
-                    City
+                    Book Stock
                 </div>
                 <div class="col-md-8">
-                    <input type="text" name="city" value="Rajkot" class="form-control">
+                    <input type="text" name="stock" value="<?=$stock?>" class="form-control">
+                </div>
+            </div>
+
+            <div class="row p-2">
+                <div class="col-md-4">
+                    Book Image
+                </div>
+                <div class="col-md-8">
+                    <input type="file" name="bookimage" class="form-control">
                 </div>
             </div>
 
