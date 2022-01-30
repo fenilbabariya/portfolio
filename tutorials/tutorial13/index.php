@@ -25,7 +25,7 @@ unset($_SESSION['status']);
         <form action="index.php" method="post">
             <div class="navbar-nav mr-auto">
                 <div class="col d-grid gap-2 d-md-flex justify-content-end nav-item">
-                    <input class="form-control w-25" type="text" name="search">
+                    <input class="form-control bg-transparent border-secondary w-25" placeholder="Search" type="text" name="search">
                     <input class="btn btn-success text-light nav-link p-2" value="Search" type="submit">
                     <a class="btn border-success text-success p-2" href="books-insert.php">+</a>
                     <a class="btn btn-success text-light p-2" href="logout.php">LOGOUT</a>
