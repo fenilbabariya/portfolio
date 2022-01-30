@@ -1,8 +1,12 @@
 <?php
 session_start();
 require 'db.php';
+if(!isset($_SESSION['username']))
+{
+    header("Location:login.php");
+}
 $msg = isset($_SESSION['status'])?$_SESSION['status']:"";
-session_destroy();
+unset($_SESSION['status']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,21 +17,23 @@ session_destroy();
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
-<body>
+<body class="alert-primary">
 	<div class="container mt-4">
+        <div class="row text-center alert bg-primary">
+            <h2 class="text-light">Books Management</h2>
+        </div>
         <form action="index.php" method="post">
-            <div class="d-grid gap-2 d-md-flex justify-content-end">
-                <input class="form-control" type="text" name="search">
-            <div class="col-md-3">
-                <input class="btn btn-primary text-light" value="Search" type="submit">
-            </div>
+            <div class="navbar-nav mr-auto">
+                <div class="col d-grid gap-2 d-md-flex justify-content-end nav-item">
+                    <input class="form-control w-25" type="text" name="search">
+                    <input class="btn btn-success text-light nav-link p-2" value="Search" type="submit">
+                    <a class="btn border-success text-success p-2" href="books-insert.php">+</a>
+                    <a class="btn btn-success text-light p-2" href="logout.php">LOGOUT</a>
+                </div>
+            </div> 
         </form>
-                <div class="col-md-4">
-                    <a class="btn alert-primary" href="books-insert.php">+ ADD NEW BOOK</a>
-                </div> 
-            </div>
             <p class="text-success fw-bold"><?=$msg?></p>
-    	<table class="table table-dark table-striped">
+    	<table class="table table-dark">
     		<thead>
         	<tr>
                     <th>SrNo</th>
